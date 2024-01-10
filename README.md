@@ -1,2 +1,3 @@
 # Svelte
-Projects, Example using Svelte Framework
+Projects, Example using **Svelte Framework**
+
