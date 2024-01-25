@@ -1,12 +1,12 @@
 <script>
-    import {createEventDispatcher} from 'svelte';
+    import { FeedbackStore } from "../stores";
     import Card from "../ui/Card.svelte";
     export let item;
 
-    const dispatch = createEventDispatcher();
-
     const handleDelete = (id) => {
-        dispatch('delete-feedback', id);
+        FeedbackStore.update((currenFeedback) => {
+            return currenFeedback.filter(item => item.id !== id);
+        });
     }
 </script>
 
@@ -51,7 +51,7 @@
         width: 15px;
     }
     .rating__text {
-        padding: 10px;
+        margin: 0;
         font-weight: 600;
     }
 </style>

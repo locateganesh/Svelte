@@ -44,5 +44,13 @@ button:disabled:hover{
     transform:scale(1);
     opacity: 1;
 }
-
+@media (max-width:548px) {
+    .submit-btn {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+}
 </style>

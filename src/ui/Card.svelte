@@ -21,4 +21,10 @@
         margin-top: 30px;
         margin-bottom: 20px;
     }
+    @media (max-width:548px) {
+        .form-card {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
 </style>

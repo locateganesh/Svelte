@@ -1,6 +1,6 @@
 
 <script>
-    import { createEventDispatcher } from "svelte";
+    import { FeedbackStore } from "../stores";
     import {v4 as uuidv4} from 'uuid';
     import Card from '../ui/Card.svelte';
     import Button from '../ui/Button.svelte';
@@ -28,8 +28,6 @@
       //console.log(rating);
     };
 
-    const dispatch = createEventDispatcher();
-
     const handleSubmit = () => {
       // console.log(rating);
       if (!rating) {
@@ -43,7 +41,11 @@
         text,
         rating
       }
-      dispatch('new-feedback', newFeedback);
+
+      FeedbackStore.update((currentFeedback)=>{
+        return [newFeedback, ...currentFeedback];
+      });
+
       text = '';
       rating = null
       //console.log(newFeedback);
@@ -52,13 +54,13 @@
 
 <Card className="form-card">
     <header>
-        <h2>How would you rate your service with us?</h2>
+        <h2>How would you rate your service <span class="no-wrap">with us?</span></h2>
     </header>
     <form on:submit|preventDefault={handleSubmit}>
         <RatingSelect on:rating-select={handleSelect} selected={rating} />
         <div class="input-group">
             <input type="text" bind:value={text} on:input={handleInput} placeholder="Tell us something that keeps you coming back">
-            <Button type="submit" disabled={btnDisabled}>Send</Button>
+            <Button type="submit" style="primary submit-btn" disabled={btnDisabled}>Send</Button>
         </div>
         {#if message}
             <div class="message">{message}</div>
@@ -67,13 +69,14 @@
 </Card>
 
 <style>
-    header h2 {
+  header h2 {
     font-size: 18px;
     font-weight: 600;
     text-align: center;
     margin: 0 0 30px;
   }
   .input-group {
+    position: relative;
     display: flex;
     flex-direction: row;
     border: 1px solid #ccc;
@@ -94,5 +97,13 @@
     padding-top: 10px;
     text-align: center;
     color: rebeccapurple;
+  }
+  .no-wrap {
+    white-space: nowrap;
+  }
+  @media (max-width:548px) {
+    .input-group {
+      margin-bottom: 55px;
+    }
   }
 </style>

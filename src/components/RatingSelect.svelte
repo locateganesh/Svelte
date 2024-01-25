@@ -25,19 +25,19 @@
 </ul>
 
 <style>
-    .rating {
+  .rating {
     display: flex;
     align-items: center;
     justify-content: space-around;
     margin: 30px 0;
     padding: 0;
   }
-
   .rating li {
     list-style: none;
     position: relative;
     margin: 0 2.5px;    
   }
+  
 
   .rating li label {
     background: #f4f4f4;
@@ -71,5 +71,14 @@
   [type='radio']:checked ~ label {
     background: #ff6a95;
     color: #fff;
+  }
+  @media (max-width:548px) {
+    .rating {
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .rating li {
+      margin-bottom: 15px;
+    }
   }
 </style>
