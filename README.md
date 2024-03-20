@@ -22,3 +22,7 @@ Image from blog.bitsrc.io
 - Great out of the box animation/trasition
 - Great ecosystem (SvelteKit, Svelte Native)
 - Easy to use
+
+## Some Demos build in Svelte 
+
+- Feedabck App using Svelte and Svelte store 
