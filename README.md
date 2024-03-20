@@ -23,6 +23,6 @@ Image from blog.bitsrc.io
 - Great ecosystem (SvelteKit, Svelte Native)
 - Easy to use
 
-## Some Demos build in Svelte 
+## Some demos build in Svelte 
 
-- Feedabck App using Svelte and Svelte store 
+- [Feedabck App using Svelte and Svelte store](https://svelte-feedback-app-003.netlify.app/)
